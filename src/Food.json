@@ -122,7 +122,7 @@
     {
         "id":"16",
         "Name":"Falafel",
-        "Image":"https://example.com/falafel.jpg",
+        "Image":"https://feelgoodfoodie.net/wp-content/uploads/2024/03/Falafel-TIMG-500x500.jpg",
         "Price":8.49,
         "Description":"Crispy falafel balls with tahini sauce.",
         "Category":"Middle Eastern"
@@ -130,7 +130,7 @@
     {
         "id":"17",
         "Name":"Cheesecake",
-        "Image":"https://example.com/cheesecake.jpg",
+        "Image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc8PhjeuJaxebmCBmh5mZrO4vEYOz9wGBweA&s",
         "Price":6.49,
         "Description":"Rich cheesecake with a graham cracker crust.",
         "Category":"Dessert"
@@ -138,7 +138,7 @@
     {
         "id":"18",
         "Name":"Grilled Cheese",
-        "Image":"https://example.com/grilledcheese.jpg",
+        "Image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Bn8xYLZBDvxSkJNLiCTXPn3w1vja980cYg&s",
         "Price":4.49,
         "Description":"Toasted bread with melted cheese.",
         "Category":"American"

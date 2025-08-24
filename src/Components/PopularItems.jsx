@@ -54,7 +54,7 @@ const PopularItem = () => {
             <div className="card-body">
               <h5 className="card-title">{item.Name}</h5>
               <div className="d-flex justify-content-between align-items-center">
-                <span className="fw-bold">{item.Price}</span>
+                <span className="fw-bold">${item.Price}</span>
                 <button
                   className="btn btn-sm btn-primary"
                   onClick={() => addToCart(item)}
