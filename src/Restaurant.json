@@ -1,0 +1,54 @@
+
+
+[
+    {
+        "name": "The Food Hub",
+        "image": "https://foodhubrestaurant.com/images/uploaded/ab1.jpeg",
+        "rating": 4.5
+    },
+    {
+        "name": "Spice Route",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVZGjHJYRzSzyIL1Zh40iPSnPlX_ZiAOOU4w&s",
+        "rating": 4.2
+    },
+    {
+        "name": "Pizza Palace",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsRJxqcnfVBsLNEt0MHKSa-Hwz645JRgpVwg&s",
+        "rating": 4.7
+    },
+    {
+        "name": "Burger King",
+        "image": "https://d.justpo.st/media/images/2013/06/5a433fdb8941f942313e333dcbb8f821.jpg",
+        "rating": 4.0
+    },
+    {
+        "name": "Sushi World",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTntJklnIMdas66ajn_z8KNqOr80YuXZU_V-Q&s",
+        "rating": 4.8
+    },
+    {
+        "name": "Pasta Paradise",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/68/ff/9e/outdoor-space.jpg?w=500&h=-1&s=1",
+        "rating": 4.3
+    },
+    {
+        "name": "Healthy Eats",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b2j4k3c5g7Z6J8X1f3z4Yy2s5a8e9m6x7w&s",
+        "rating": 4.6
+    },
+    {
+        "name": "Taco Town",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8RZsR7gAtYj__0yJgMWRuZQLkZOKx9TJfrw&s=10",
+        "rating": 4.1
+    },
+    {
+        "name": "Ice Cream Delight",
+        "image": "https://example.com/icecream.jpg",
+        "rating": 4.9
+    },
+    {
+        "name": "Steak House",
+        "image": "https://example.com/steak.jpg",
+        "rating": 4.4
+    }
+]

@@ -1,0 +1,40 @@
+body {
+    background-color: lch(96.54% 0.01 296.81);
+    padding-top: 90px;
+}
+.navbar-nav{
+    margin-left: 50px;
+    gap: 20px;
+    align-items: center;
+    font-size: 16px;
+    float: right;
+}
+.form-control {
+    width: 100px;
+    margin-left: 20px;
+}
+.scooter {
+  width: 580px;
+  animation: ride 4s linear infinite;
+  position: relative;
+}
+
+@keyframes ride {
+  0% {
+    transform: translateX(-100px);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(-100px);
+  }
+}
+.text-start{
+    text-align: left;
+}
+
+
+
+
+
