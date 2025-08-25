@@ -1,9 +1,12 @@
 import { useRef } from "react";
 import mydata from "../Restaurant.json";
+import { useNavigate } from "react-router-dom";
 import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
+
 
 const Restaurants = () => {
   const scrollRef = useRef(null);
+  const navigate = useNavigate();
 
   const scrollLeft = () => {
     if (scrollRef.current) {
@@ -19,7 +22,7 @@ const Restaurants = () => {
 
   return (
     <div className="container mt-4 position-relative">
-      <h3 className="mt-4 ms-4">Featured Restaurants</h3>
+      <h3 className="mt-4 ms-2 fw-bold">👨🏻‍🍳Featured Restaurants</h3>
 
       {/* Left Button */}
       <button
@@ -27,19 +30,19 @@ const Restaurants = () => {
         onClick={scrollLeft}
         style={{ zIndex: 10 }}
       >
-        <CiCircleChevLeft size={28} />
+        &#8249;
       </button>
 
       {/* Scrollable Cards */}
       <div
         ref={scrollRef}
-        className="d-flex overflow-auto"
+        className="d-flex restaurant-scroll"
         style={{ gap: "15px", paddingBottom: "10px", scrollBehavior: "smooth" }}
       >
         {mydata.map((item, index) => (
           <div
             key={index}
-            className="card shadow-sm"
+            className="card shadow-sm mt-3"
             style={{ minWidth: "220px", maxWidth: "220px", flex: "0 0 auto" }}
           >
             <img
@@ -52,7 +55,7 @@ const Restaurants = () => {
               <h5 className="card-title">{item.name}</h5>
               <div className="d-flex justify-content-between align-items-center">
                 <span className="fw-bold">⭐ {item.rating}</span>
-                <button className="btn btn-sm btn-primary">View Details</button>
+                <button className="btn btn-sm btn-danger fw-bold" onClick={()=>navigate(`restaurant/${item.id}`)} >View Details</button>
               </div>
             </div>
           </div>
@@ -65,7 +68,7 @@ const Restaurants = () => {
         onClick={scrollRight}
         style={{ zIndex: 10 }}
       >
-        <CiCircleChevRight size={28} />
+           &#8250;
       </button>
     </div>
   );

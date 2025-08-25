@@ -20,7 +20,7 @@ const PopularItem = () => {
 
   return (
     <div className="container mt-4 position-relative" >
-      <h3 className="mb-4">🍴 Popular Items</h3>
+      <h3 className="mb-4 fw-bold">🍴 Popular Items</h3>
 
       {/* Left Button */}
       <button
@@ -34,7 +34,7 @@ const PopularItem = () => {
       {/* Horizontal Scroll Wrapper */}
       <div
         ref={scrollRef}
-        className="d-flex overflow-auto"
+        className="d-flex popular-scroll"
         style={{ gap: "15px", paddingBottom: "10px", scrollBehavior: "smooth" }}
       >
         {mydata.map((item, index) => (
@@ -56,7 +56,7 @@ const PopularItem = () => {
               <div className="d-flex justify-content-between align-items-center">
                 <span className="fw-bold">${item.Price}</span>
                 <button
-                  className="btn btn-sm btn-primary"
+                  className="btn btn-sm btn-danger fw-bold"
                   onClick={() => addToCart(item)}
                 >
                   Order

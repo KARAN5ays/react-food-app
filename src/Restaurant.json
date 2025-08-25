@@ -1,54 +1,196 @@
 
 
 [
-    {
+    {   
+        "id":1,
         "name": "The Food Hub",
-        "image": "https://foodhubrestaurant.com/images/uploaded/ab1.jpeg",
-        "rating": 4.5
+        "image": "https://www.matookerepublic.com/wp-content/uploads/2018/05/FOO-HUB-3.jpg",
+        "rating": 4.5,
+        "description": "A cozy place offering a variety of international cuisines.",
+        "foods": [
+            {
+                "name": "Margherita Pizza",
+                "price": 12.99,
+                "image": "https://worldlytreat.com/wp-content/uploads/2021/05/Italian-pepperoni-pizza-recipe-060-scaled.jpg"
+            },
+            {
+                "name": "Caesar Salad",
+                "price": 8.99,
+                "image": "https://cdn.loveandlemons.com/wp-content/uploads/2024/12/caesar-salad.jpg"
+            }
+        ]
+        
     },
     {
+        "id":2,
         "name": "Spice Route",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVZGjHJYRzSzyIL1Zh40iPSnPlX_ZiAOOU4w&s",
-        "rating": 4.2
+        "rating": 4.2,
+        "description": "Experience the authentic flavors of Asia with our diverse menu.",
+        "foods": [
+            {
+                "name": "Chicken Tikka Masala",
+                "price": 14.99,
+                "image": "https://www.seriouseats.com/thmb/DbQHUK2yNCALBnZE-H1M2AKLkok=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-tikka-masala-for-the-grill-recipe-hero-2_1-cb493f49e30140efbffec162d5f2d1d7.JPG"
+            },
+            {
+                "name": "Pad Thai",
+                "price": 11.99,
+                "image": "https://www.recipetineats.com/tachyon/2020/01/Chicken-Pad-Thai_9-SQ.jpg?resize=500%2C500"
+            }
+        ]
     },
     {
+        "id":3,
         "name": "Pizza Palace",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsRJxqcnfVBsLNEt0MHKSa-Hwz645JRgpVwg&s",
-        "rating": 4.7
+        "rating": 4.7,
+        "description": "Home of the best wood-fired pizzas in town.",
+        "foods": [
+            {
+                "name": "Pepperoni Pizza",
+                "price": 13.99,
+                "image": "https://mojo.generalmills.com/api/public/content/iD9XDP4qRGCvhuXE9QVkxg_gmi_hi_res_jpeg.jpeg?v=ce3e36a9&t=eae6004af7d84bc5a9fa522ac84b14a8"
+            },
+            {
+                "name": "Veggie Delight Pizza",
+                "price": 12.49,
+                "image": "https://m1.quebecormedia.com/emp/cl_prod/canadian_living-_-defbc3c3683d28a2df0fe124203f039c37678bb9-_-veggie-delight-pizza.jpg?impolicy=resize&width=1500&height=1500"
+            }
+        ]
     },
     {
+        "id":4,
         "name": "Burger King",
         "image": "https://d.justpo.st/media/images/2013/06/5a433fdb8941f942313e333dcbb8f821.jpg",
-        "rating": 4.0
+        "rating": 4.0,
+        "description": "Delicious gourmet burgers made with fresh ingredients.",
+        "foods": [
+            {
+                "name": "Classic Cheeseburger",
+                "price": 10.99,
+                "image": "https://rhubarbandcod.com/wp-content/uploads/2022/06/The-Classic-Cheeseburger-1.jpg"
+            },
+            {
+                "name": "Bacon Burger",
+                "price": 11.99,
+                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6isLhEmC0563sFX3Y-9kJbzDf6PfhPCE7lg&s"
+            }
+        ]
     },
     {
+        "id":5,
         "name": "Sushi World",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTntJklnIMdas66ajn_z8KNqOr80YuXZU_V-Q&s",
-        "rating": 4.8
+        "rating": 4.8,
+        "description": "Fresh sushi and sashimi prepared by expert chefs.",
+        "foods": [
+            {
+                "name": "California Roll",
+                "price": 9.99,
+                "image": "https://example.com/california.jpg"
+            },
+            {
+                "name": "Spicy Tuna Roll",
+                "price": 10.99,
+                "image": "https://example.com/spicytuna.jpg"
+            }
+        ]
     },
     {
+        "id":6, 
         "name": "Pasta Paradise",
         "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/68/ff/9e/outdoor-space.jpg?w=500&h=-1&s=1",
-        "rating": 4.3
+        "rating": 4.3,
+        "description": "Authentic Italian pasta dishes in a charming setting.",
+        "foods": [
+            {
+                "name": "Spaghetti Carbonara",
+                "price": 13.49,
+                "image": "https://example.com/carbonara.jpg"
+            },
+            {
+                "name": "Fettuccine Alfredo",
+                "price": 12.99,
+                "image": "https://example.com/alfredo.jpg"
+            }
+        ]
     },
     {
+        "id":7,
         "name": "Healthy Eats",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b2j4k3c5g7Z6J8X1f3z4Yy2s5a8e9m6x7w&s",
-        "rating": 4.6
+        "rating": 4.6,
+        "description": "Nutritious and delicious meals for a healthy lifestyle.",
+        "foods": [
+            {
+                "name": "Quinoa Salad",
+                "price": 9.99,
+                "image": "https://example.com/quinoa.jpg"
+            },
+            {
+                "name": "Grilled Chicken Bowl",
+                "price": 11.99,
+                "image": "https://example.com/chickenbowl.jpg"
+            }
+        ]
+
     },
     {
+        "id":8,
         "name": "Taco Town",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8RZsR7gAtYj__0yJgMWRuZQLkZOKx9TJfrw&s=10",
-        "rating": 4.1
+        "rating": 4.1,
+        "description": "A vibrant spot for authentic Mexican tacos and more.",
+        "foods": [
+            {
+                "name": "Beef Taco",
+                "price": 3.99,
+                "image": "https://example.com/beeftaco.jpg"
+            },
+            {
+                "name": "Fish Taco",
+                "price": 4.49,
+                "image": "https://example.com/fishtaco.jpg"
+            }
+        ]
     },
     {
+        "id":9,
         "name": "Ice Cream Delight",
         "image": "https://example.com/icecream.jpg",
-        "rating": 4.9
+        "rating": 4.9,
+        "description": "A sweet treat destination with a variety of ice cream flavors.",
+        "foods": [
+            {
+                "name": "Chocolate Sundae",
+                "price": 5.99,
+                "image": "https://example.com/sundae.jpg"
+            },
+            {
+                "name": "Strawberry Cone",
+                "price": 4.99,
+                "image": "https://example.com/strawberrycone.jpg"
+            }
+        ]
     },
     {
+        "id":10,
         "name": "Steak House",
         "image": "https://example.com/steak.jpg",
-        "rating": 4.4
+        "rating": 4.4,
+        "description": "Premium steaks grilled to perfection in an elegant atmosphere.",
+        "foods": [
+            {
+                "name": "Ribeye Steak",
+                "price": 24.99,
+                "image": "https://example.com/ribeye.jpg"
+            },
+            {
+                "name": "Filet Mignon",
+                "price": 29.99,
+                "image": "https://example.com/filet.jpg"
+            }
+        ]
     }
 ]

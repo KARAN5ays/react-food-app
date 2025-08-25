@@ -262,5 +262,62 @@
         "Price":11.99,
         "Description":"Pasta baked with cheese and marinara sauce.",
         "Category":"Italian"
+    },
+    {
+        "id":"34",
+        "Name":"Coca-Cola",
+        "Image":"https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2179849363.jpg?c=16x9&q=h_833,w_1480,c_fill",
+        "Price":1.99,   
+        "Description":"Refreshing carbonated soft drink.",
+        "Category":"Beverages"
+    },
+    {
+        "id":"35",
+        "Name":"Orange Juice",
+        "Image":"https://vinyasayogaacademy.com/blog/wp-content/uploads/2020/03/Benefits-of-Drinking-Orange-Juice-every-morning.jpg",
+        "Price":2.49,
+        "Description":"Freshly squeezed orange juice.",
+        "Category":"Beverages"
+    },
+    {
+        "id":"36",
+        "Name":"Lemonade",
+        "Image":"https://oliveoilsfromspain.org/wp-content/uploads/2021/03/healthy-lemonade.jpg",
+        "Price":2.29,
+        "Description":"Chilled lemonade with a hint of mint.",
+        "Category":"Beverages"
+    },
+    {
+        "id":"37",
+        "Name":"Iced Tea",
+        "Image":"https://realfood.tesco.com/media/images/RFO-1400x919-IcedTea-8e156836-69f4-4433-8bae-c42e174212c1-0-1400x919.jpg",
+        "Price":1.99,
+        "Description":"Refreshing iced tea with lemon.",
+        "Category":"Beverages"  
+    },
+    {
+        "id":"38",
+        "Name":"Coffee",
+        "Image":"https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/newscms/2019_33/2203981/171026-better-coffee-boost-se-329p.jpg",
+        "Price":2.99,
+        "Description":"Hot brewed coffee.",
+        "Category":"Beverages"
+    },
+    {
+        "id":"39",
+        "Name":"Tea",
+        "Image":"https://domf5oio6qrcr.cloudfront.net/medialibrary/8468/Tea.jpg",
+        "Price":2.49,
+        "Description":"Hot brewed tea with a slice of lemon.",
+        "Category":"Beverages"
+    },
+    {
+        "id":"40",
+        "Name":"Milkshake",
+        "Image":"https://www.thespruceeats.com/thmb/5Jt5nYk1JHk9H3jv5jHk6gWlX1E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/milkshake-58a8f3e83df78c345b4f4d6e.jpg",
+        "Price":3.49,
+        "Description":"Creamy milkshake with whipped cream.",
+        "Category":"Beverages"
     }
+
 ]

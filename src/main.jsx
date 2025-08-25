@@ -8,6 +8,9 @@ import CartPage from './Components/CartPage.jsx';
 import LoginForm from './Components/LoginForm.jsx';
 import Menu from './Components/Menu.jsx';
 import Offer from './Components/Offers.jsx';
+import OrderSummary from './Components/OrderSummary.jsx';
+import Restaurants from './Components/Restaurants.jsx';
+import RestaurantDetails from './Components/RestaurantDetails.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -21,6 +24,9 @@ createRoot(document.getElementById('root')).render(
           <Route path="/cart" element={<CartPage />} />
             <Route path="/menu" element={<Menu/>} />
             <Route path="/offer" element={<Offer/>}/>
+             <Route path="/order-summary" element={<OrderSummary />} />
+               <Route path="/" element={<Restaurants />} />
+        <Route path="/restaurant/:id" element={<RestaurantDetails />} />
           <Route path="/Login" element={<LoginForm />} />
         </Routes>
       </CartProvider>
