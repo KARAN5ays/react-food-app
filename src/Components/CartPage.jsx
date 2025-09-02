@@ -4,11 +4,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const CartPage = () => {
-  const { cart, removeFromCart, addToCart, decreaseQuantity } = useCart();
+  const { cart, removeFromCart, addToCart } = useCart();
   const navigate = useNavigate();
   const [promoCode, setPromoCode] = useState("");
   
-  // Calculate cart totals
+  // Calculate cart totalscd
   const subtotal = cart.reduce((total, item) => total + (item.Price * item.quantity), 0);
   const tax = subtotal * 0.08; // 8% tax
   const deliveryFee = subtotal > 30 ? 0 : 4.99; // Free delivery for orders over $30
@@ -44,10 +44,10 @@ const CartPage = () => {
   };
 
   return (
-    <div className="container py-5">
+    <div className="container d-flex justify-content-center align-items-center py-5">
       <div className="row">
         {/* Cart Items Section */}
-        <div className="col-lg-8">
+        <div className="col-lg-8 mb-4">
           <div className="d-flex justify-content-between align-items-center mb-4">
             <h2 className="fw-bold">
               <i className="bi bi-cart3 me-2"></i>Your Cart
@@ -64,10 +64,11 @@ const CartPage = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
+            
               <div className="mb-4">
                 <i className="bi bi-cart-x text-muted" style={{ fontSize: "5rem" }}></i>
               </div>
-              <h3 className="mb-3">Your cart is empty</h3>
+              <h3 className="mb-3  text-center">Your cart is empty</h3>
               <p className="text-muted mb-4">Looks like you haven't added any items to your cart yet.</p>
               <button 
                 className="btn btn-primary btn-lg"
@@ -103,7 +104,7 @@ const CartPage = () => {
                         <div className="d-flex justify-content-between align-items-start mb-2">
                           <h5 className="card-title fw-bold">{item.Name}</h5>
                           <span className="badge bg-light text-dark fw-normal">
-                            ${item.Price.toFixed(2)} each
+                            ${typeof item.Price === "number" ? item.Price.toFixed(2) : "0.00"} each
                           </span>
                         </div>
                         
@@ -133,7 +134,7 @@ const CartPage = () => {
                           
                           <div className="d-flex align-items-center">
                             <span className="fw-bold me-3">
-                              ${(item.Price * item.quantity).toFixed(2)}
+                              ${(typeof item.Price === "number" ? item.Price * item.quantity : 0).toFixed(2)}
                             </span>
                             <button 
                               className="btn btn-sm btn-outline-danger"

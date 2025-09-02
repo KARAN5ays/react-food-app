@@ -1,9 +1,17 @@
 import mydata from '../Restaurant.json';
+import myfood from '../Food.json';
 import { useParams } from 'react-router-dom';
+import { useCart } from '../Context/CartContext.jsx';
 
 const RestaurantDetails = () => {
   const { id } = useParams();
   const restaurant = mydata.find((item) => item.id === parseInt(id));
+
+  const { cart, addToCart, removeFromCart } = useCart();
+
+  const isInCart = (item) => {
+    return cart.some((cartItem) => cartItem.id === item.id);
+  }
   
   if (!restaurant) {
     return (
@@ -75,7 +83,7 @@ const RestaurantDetails = () => {
       
       {/* Popular Dishes Section */}
       <div className="mb-4">
-        <div className="d-flex justify-content-between align-items-center mb-4">
+        <div className="d-flex justify-content-between align-items-center mb-5">
           <h2 className="fw-bold text-dark">Popular Dishes</h2>
           <div className="d-flex gap-2">
             <button className="btn btn-sm btn-outline-secondary">
@@ -88,7 +96,7 @@ const RestaurantDetails = () => {
         </div>
         
         <div className="row g-4">
-          {restaurant.foods.map((food, index) => (
+          {Array.isArray(restaurant.foods) && restaurant.foods.map((food, index) => (
             <div key={index} className="col-xl-3 col-lg-4 col-md-6">
               <div className="card h-100 shadow-sm border-0 overflow-hidden transition-all hover-shadow">
                 <div className="position-relative">
@@ -118,9 +126,15 @@ const RestaurantDetails = () => {
                       <i className="bi bi-star-fill"></i>
                       <i className="bi bi-star-half"></i>
                     </div>
-                    <button className="btn btn-sm btn-danger fw-bold">
-                      Order Now
-                    </button>
+                    {isInCart(food) ? (
+                      <button className="btn btn-sm btn-secondary fw-bold" onClick={() => removeFromCart(food)}>
+                        Remove
+                      </button>
+                    ) : (
+                      <button className="btn btn-sm btn-danger fw-bold" onClick={() => addToCart(food)}>
+                        Order Now
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

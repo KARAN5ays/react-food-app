@@ -2,7 +2,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import Logo from "../assets/Logo.png";
 import { useCart } from "../Context/CartContext.jsx";
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import SearchFilter from "./SearchFilter.jsx";
 import mydata from "../Food.json";
 import LoginForm from "./LoginForm.jsx";
@@ -27,7 +27,6 @@ const Navbar = () => {
     setFilteredData(results);
   }, [searchTerm]);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -40,15 +39,14 @@ const Navbar = () => {
 
   return (
     <>
-    <div className="navbar-container fixed-top z-1000">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow mb-3 rounded">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow fixed-top">
         <div className="container-fluid">
           {/* Logo */}
-          <a className="navbar-brand" href="#">
-            <img src={Logo} alt="Logo" style={{ width: "80px" }} />
-          </a>
+          <NavLink className="navbar-brand d-flex align-items-center" to="/">
+            <img src={Logo} alt="Logo" style={{ width: "60px" }} />
+          </NavLink>
 
-          {/* Toggler */}
+          {/* Toggler for small screens */}
           <button
             className="navbar-toggler"
             type="button"
@@ -61,75 +59,116 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* Menu + Search + Cart */}
+          {/* Navbar items */}
           <div className="collapse navbar-collapse" id="navbarNav">
-            {/* Left Menu */}
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            {/* Left menu */}
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 text-center">
               <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link>
+                <NavLink
+                  to="/"
+                  end
+                  className={({ isActive }) =>
+                    "nav-link px-3 " +
+                    (isActive ? "text-warning fw-bold" : "text-light")
+                  }
+                >
+                  Home
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/menu">Menu</Link>
+                <NavLink
+                  to="/menu"
+                  className={({ isActive }) =>
+                    "nav-link px-3 " +
+                    (isActive ? "text-warning fw-bold" : "text-light")
+                  }
+                >
+                  Menu
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/offer">Offers</Link>
+                <NavLink
+                  to="/offer"
+                  className={({ isActive }) =>
+                    "nav-link px-3 " +
+                    (isActive ? "text-warning fw-bold" : "text-light")
+                  }
+                >
+                  Offers
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/cart">Cart</Link>
+                <NavLink
+                  to="/cart"
+                  className={({ isActive }) =>
+                    "nav-link px-3 " +
+                    (isActive ? "text-warning fw-bold" : "text-light")
+                  }
+                >
+                  Cart
+                </NavLink>
               </li>
-              <li className="nav-item">
-                <Link className="btn btn-danger ms-2" type="button" to="/Login"onClick={(e)=>{
-                  e.preventDefault();
-                  setShowLoginModal(true);
-                }}>Login</Link>
+              <li className="nav-item mt-2 mt-lg-0">
+                <button
+                  className="btn btn-danger w-100"
+                  onClick={() => setShowLoginModal(true)}
+                >
+                  Login
+                </button>
               </li>
             </ul>
 
-            {/* Right Side: Search + Cart */}
-            <div className="d-flex align-items-center flex-grow-1 ms-4" ref={wrapperRef}>
-              <div className="input-group w-75 me-3 position-relative">
+            {/* Right side: search + cart */}
+            <div
+              className="d-flex align-items-center flex-grow-1 ms-lg-3 mt-3 mt-lg-0"
+              ref={wrapperRef}
+            >
+              <div className="input-group w-100 position-relative">
                 <input
                   type="text"
                   className="form-control border-0"
                   placeholder="Search Any Food or Restaurant..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  onFocus={() => setShowDropdown(true)} // show dropdown only when input focused
+                  onFocus={() => setShowDropdown(true)}
                 />
-                <button className="btn btn-primary" type="button">Search</button>
+                <button className="btn btn-primary" type="button">
+                  Search
+                </button>
 
-                {/* Dropdown only when typing/focused */}
                 {showDropdown && (
-                  <SearchFilter filteredData={filteredData} searchTerm={searchTerm} />
+                  <SearchFilter
+                    filteredData={filteredData}
+                    searchTerm={searchTerm}
+                  />
                 )}
               </div>
 
-              {/* Cart */}
-              <div className="position-relative">
-                <Link
-                  to="/cart"
-                  className="btn position-relative p-1 ms-3 border-0 bg-transparent"
-                >
-                  <FaCartShopping className="fs-4" style={{ color: "white" }} />
+              <NavLink
+                to="/cart"
+                className="btn position-relative ms-3 border-0 bg-transparent"
+              >
+                <FaCartShopping className="fs-4 text-white" />
+                {cart.length > 0 && (
                   <span
                     className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                     style={{ fontSize: "0.7rem" }}
                   >
                     {cart.length}
                   </span>
-                </Link>
-              </div>
+                )}
+              </NavLink>
             </div>
           </div>
         </div>
       </nav>
-    </div>
 
-    <LoginForm isOpen={showLoginModal}
-    onClose={()=>setShowLoginModal(false)}
-    />
+      {/* Login Modal */}
+      <LoginForm
+        isOpen={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+      />
     </>
-    
   );
 };
 
