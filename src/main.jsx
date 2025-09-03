@@ -1,8 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
-import { CartProvider } from "./Context/CartContext.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 import Navbar from "./Components/Navbar.jsx";
 import CartPage from "./Components/CartPage.jsx";
 import LoginForm from "./Components/LoginForm.jsx";
@@ -16,7 +17,7 @@ import DescriptionFood from "./Components/DescriptionFood.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <CartProvider>
+      <Provider store={store}>
         <Navbar />
         <Routes>
         
@@ -32,7 +33,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/restaurant/:id" element={<RestaurantDetails />} />
           <Route path="/login" element={<LoginForm />} />
         </Routes>
-      </CartProvider>
+      </Provider>
     </BrowserRouter>
   </StrictMode>
 );

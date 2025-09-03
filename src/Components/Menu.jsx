@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from "react";
 import foodData from "../Food.json";
-import { useCart } from "../Context/CartContext";
 import { motion } from "framer-motion";
 import { FiShoppingCart, FiStar, FiClock, FiTag } from "react-icons/fi";
+import { useAppSelector, useAppDispatch } from '../redux/hooks';
+import { addToCart, removeFromCart } from "../redux/slices/cartSlice";
 
 const MenuPage = () => {
   const [groupedFoods, setGroupedFoods] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const { cart,addToCart,removeFromCart } = useCart();
+  
+  // Redux hooks
+  const dispatch = useAppDispatch();
+  const cart = useAppSelector(state => state.cart.items);
   
   // Get all unique categories
   const categories = ["All", ...new Set(foodData.map(item => item.Category))];
-
-  const isinitem=(item)=>{
-    return cart.some((cartItem) => cartItem.id === item.id);
-  }
   
+  // Check if item is in cart
+  const isinitem = (item) => {
+    return cart.some((cartItem) => cartItem.id === item.id);
+  };
   
   useEffect(() => {
     // Group food by category
@@ -28,12 +32,12 @@ const MenuPage = () => {
     }, {});
     setGroupedFoods(grouped);
   }, []);
-
+  
   // Filter foods based on selected category
   const filteredFoods = selectedCategory === "All" 
     ? foodData 
     : (groupedFoods[selectedCategory] || []);
-
+    
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -44,7 +48,7 @@ const MenuPage = () => {
       }
     }
   };
-
+  
   const cardVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -85,7 +89,7 @@ const MenuPage = () => {
           Explore our delicious food categories
         </motion.p>
       </div>
-
+      
       {/* Category Filter */}
       <div className="d-flex flex-wrap justify-content-center gap-2 mb-5">
         {categories.map((category) => (
@@ -100,7 +104,7 @@ const MenuPage = () => {
           </motion.button>
         ))}
       </div>
-
+      
       {/* Food Items */}
       {Object.keys(groupedFoods).length === 0 ? (
         <div className="text-center py-5">
@@ -159,28 +163,25 @@ const MenuPage = () => {
                     <div className="text-muted small">
                       <FiClock className="me-1" /> 15-20 min
                     </div>
-                    {
-                      isinitem(item) ? (
-                        <motion.button
-                          className="btn btn-secondary px-4"
-                          onClick={() => removeFromCart(item)}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <FiShoppingCart className="me-2" /> Remove
-                        </motion.button>
-                      ) :(
-                    
-                    <motion.button
-                      className="btn btn-danger px-4"
-                      onClick={() => addToCart(item)}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <FiShoppingCart className="me-2" /> Add
-                    </motion.button>
-                      )
-                    }
+                    {isinitem(item) ? (
+                      <motion.button
+                        className="btn btn-secondary px-4"
+                        onClick={() => dispatch(removeFromCart(item.id))}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <FiShoppingCart className="me-2" /> Remove
+                      </motion.button>
+                    ) : (
+                      <motion.button
+                        className="btn btn-danger px-4"
+                        onClick={() => dispatch(addToCart(item))}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <FiShoppingCart className="me-2" /> Add
+                      </motion.button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -188,7 +189,7 @@ const MenuPage = () => {
           ))}
         </motion.div>
       )}
-
+      
       {/* Empty State */}
       {filteredFoods.length === 0 && Object.keys(groupedFoods).length > 0 && (
         <div className="text-center py-5">

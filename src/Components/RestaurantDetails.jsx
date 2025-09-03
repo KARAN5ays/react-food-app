@@ -1,17 +1,19 @@
 import mydata from '../Restaurant.json';
 import myfood from '../Food.json';
 import { useParams } from 'react-router-dom';
-import { useCart } from '../Context/CartContext.jsx';
+import { useAppSelector, useAppDispatch } from '../redux/hooks';
+import { addToCart, removeFromCart } from '../redux/slices/cartSlice';
 
 const RestaurantDetails = () => {
   const { id } = useParams();
+  const dispatch = useAppDispatch();
+  const cart = useAppSelector(state => state.cart.items);
+  
   const restaurant = mydata.find((item) => item.id === parseInt(id));
-
-  const { cart, addToCart, removeFromCart } = useCart();
-
+  
   const isInCart = (item) => {
     return cart.some((cartItem) => cartItem.id === item.id);
-  }
+  };
   
   if (!restaurant) {
     return (
@@ -23,7 +25,7 @@ const RestaurantDetails = () => {
       </div>
     );
   }
-
+  
   return (
     <div className="container py-4">
       {/* Restaurant Header Section */}
@@ -127,11 +129,11 @@ const RestaurantDetails = () => {
                       <i className="bi bi-star-half"></i>
                     </div>
                     {isInCart(food) ? (
-                      <button className="btn btn-sm btn-secondary fw-bold" onClick={() => removeFromCart(food)}>
+                      <button className="btn btn-sm btn-secondary fw-bold" onClick={() => dispatch(removeFromCart(food.id))}>
                         Remove
                       </button>
                     ) : (
-                      <button className="btn btn-sm btn-danger fw-bold" onClick={() => addToCart(food)}>
+                      <button className="btn btn-sm btn-danger fw-bold" onClick={() => dispatch(addToCart(food))}>
                         Order Now
                       </button>
                     )}

@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
-import { useCart } from "../Context/CartContext";
 import mydata from "../Food.json";
 import { useState } from "react";
+import { useAppDispatch } from '../redux/hooks'; // Fixed import path
+import { addToCart } from "../redux/slices/cartSlice";
 
 const DescriptionFood = () => {
+  const dispatch = useAppDispatch();
   const { id } = useParams();
-  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [addedToCart, setAddedToCart] = useState(false);
   
@@ -30,7 +31,7 @@ const DescriptionFood = () => {
   }
 
   const handleAddToCart = () => {
-    addToCart({ ...item, quantity });
+    dispatch(addToCart({ ...item, quantity }));
     setAddedToCart(true);
     setTimeout(() => setAddedToCart(false), 3000);
   };
